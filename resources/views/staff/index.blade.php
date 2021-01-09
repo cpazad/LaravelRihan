@@ -46,7 +46,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="{{route('staff.show', $staff -> id)}}">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="{{route('staff.delete', $staff -> id)}}">Delete</a>
 							</td>
 						</tr>
 						@endforeach

@@ -19,8 +19,8 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'staff'], funct
     Route::get('/', 'StaffController@index') -> name('staff.index');
     Route::get('/create', 'StaffController@create') -> name('staff.create');
     Route::post('/store', 'StaffController@store') -> name('staff.store');
-    Route::get('/edit', 'StaffController@edit') -> name('staff.edit');
     Route::get('/show/{id}', 'StaffController@show') -> name('staff.show');
+    Route::get('/delete/{id}', 'StaffController@delete') -> name('staff.delete');
 
 });
 

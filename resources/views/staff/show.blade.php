@@ -12,8 +12,10 @@
 	
 	
 
-	<div class="wrap shadow">
-		<div class="card">
+	<div class="wrap ">
+		<div class="card shadow">
+		@include(validation)
+		<a class="btn btn-primary" href="{{route('staff.index')}}">Back to Table</a>
 			<div class="card-body">
 				<h2>Personal Profile</h2>
 				<table>

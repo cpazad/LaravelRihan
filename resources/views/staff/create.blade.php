@@ -17,13 +17,7 @@
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Add New Staff</h2>
-				@if($errors -> any())
-				<p class="alert alert-danger">{{$errors -> first()}}<button class="close" data-dismiss ="alert">&times;</button></p>
-				@endif
-
-				@if(Session::has('success'))
-				<p class="alert alert-danger">{{Session::get('success')}}<button class="close" data-dismiss ="alert">&times;</button></p>
-				@endif
+				@include(validation)
 
 				<form action="{{ route('staff.store')}}" method="POST" enctype="multipart/form-data">
 				@csrf

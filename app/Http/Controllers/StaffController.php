@@ -60,6 +60,15 @@ class StaffController extends Controller
         $personalData = Staff::find($id);
         return view('staff.show', [
             'staff' => $personalData 
-        ] );
+        ] );   
+    }
+    /**
+     * delete
+     */
+    public function delete($id){
+        $delete_data = Staff::find($id);
+        $delete_data -> delete();
+        return redirect() -> back() -> with('success', 'Staff deleted Successfully !' );
+        ] );   
     }
 }
