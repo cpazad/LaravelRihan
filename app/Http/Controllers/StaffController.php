@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
+use GrahamCampbell\ResultType\Success;
 
 class StaffController extends Controller
 {
@@ -10,7 +12,10 @@ class StaffController extends Controller
      * Index
      */
     public function index(){
-        return view('staff.index');
+        $staffData = Staff::latest() ->get();
+        return view('staff.index', [
+            'All_data' => $staffData
+        ]);
     }
     /**
      * create
@@ -35,6 +40,26 @@ class StaffController extends Controller
             'email.unique' => 'email unique na',
             'uname.required' => 'Name Must',
         ]);
+
+        Staff::create([
+            'name' => $request -> name,
+            'email' => $request -> email,
+            'uname' => $request -> uname,
+            'password' => password_hash($request -> password, PASSWORD_DEFAULT),
+            'age' => $request -> age,
+            'photo' => " ",
+
+        ]);
+
+        return redirect() -> back() -> with('success', 'Staff added Successfully !' );
     }
-   
+   /**
+     * show
+     */
+    public function show($id){
+        $personalData = Staff::find($id);
+        return view('staff.show', [
+            'staff' => $personalData 
+        ] );
+    }
 }
